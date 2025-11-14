@@ -50,12 +50,6 @@ const addToCart = (product) => {
               追加
             </v-btn>
           </v-card-actions>
-          <!-- カート削除ボタンを追加 -->
-            <v-btn
-            icon="mdi-delete"
-            color="error"
-            @click="deleteCart(item)"
-            </v-btn>
         </v-card>
       </v-col>
     </v-row>

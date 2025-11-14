@@ -54,11 +54,12 @@ export const useProductStore = defineStore('product', {
     async purchase() {
       await new Promise(resolve => setTimeout(resolve, 3000))
       this.clearCart()
-    }
-
-    //選択した商品を削除する
-    deleteCart(product) {
-      this.products(p => (p.quantity = 0))  
+    },
+    removeFromCart(id) {
+      const item = this.products.find(p => p.id === id)
+      if (item) {
+        item.quantity = 0
+      }
     },
   }
 })

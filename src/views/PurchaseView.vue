@@ -25,6 +25,10 @@ const handlePurchase = async () => {
   setTimeout(() => {
     showPopup.value = false
   }, 2000)
+}  
+// 商品を削除する処理
+const removeItem = (id) => {
+  store.removeFromCart(id)
 }
 </script>
 
@@ -56,7 +60,12 @@ const handlePurchase = async () => {
                 <div class="text-h6">{{ item.name }}</div>
                 <div class="text-subtitle-2">{{ item.price }}円 × {{ item.quantity }}個</div>
               </div>
-
+        <!-- ゴミ箱アイコン -->
+        <v-btn
+          icon="mdi-delete"
+          color="error"
+          @click="removeItem(item.id)"
+        ></v-btn>
             </v-card>
           </v-col>
         </v-row>
@@ -78,7 +87,6 @@ const handlePurchase = async () => {
             購入する
           </v-btn>
         </div>
-
         <!-- 購入完了メッセージ -->
         <v-alert
           v-if="showPopup"
